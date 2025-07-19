@@ -2,3 +2,72 @@
 It can login with the username and password to the public page and save the first loaded part of the page as html. \
 \
 }
+# 🔐 Backdoor Login Tool (Node.js)
+
+This Node.js tool simulates advanced login flow detection by analyzing HTML snapshots and login pages. It extracts key login/logout navigation links for security testing, OSINT tools, or UX evaluation use cases.
+
+---
+
+## ✨ Key Features
+
+- 🔍 Parses HTML to find login/logout endpoints  
+- ⚙️ Extracts “Show More” links, comment navigation, and key URLs  
+- ➗ Modular functions: easy to extend for other page types  
+- 🧪 Built for offline testing using local HTML snapshots  
+- 🧰 Includes test pages for reproducible validation
+
+---
+
+## 🧠 How It Works
+
+1. Use `cheerio` to load HTML content  
+2. Identify login, logout, or hidden navigation paths  
+3. Extract visible and paginated elements using CSS selectors  
+4. Export results as arrays or objects for downstream automation
+
+---
+
+## 🗂️ Project Structure
+
+📁 test-pages/ → Sample HTML test files
+📄 index.js → Core scraper functions
+📄 Facebook_screenshot.png → Visual reference (optional)
+📄 package.json → Node.js dependencies
+
+
+## 🚀 Usage Example
+
+```js
+const fs = require("fs");
+const { scrapeShowMoreLink, scrapePostsWithComments, scrapeCommentsFromPost } = require("./index");
+
+const html = fs.readFileSync("./test-pages/moreComments.test.html", "utf-8");
+const result = scrapeCommentsFromPost(html);
+
+console.log("Comments:", result.comments);
+console.log("Load more:", result.viewMoreCommentsLink);
+
+Tech Stack
+Node.js
+
+Cheerio.js – Server-side HTML parsing
+
+Test HTML files for consistent parsing bench
+
+Author
+Developed by @Aidin12 — building secure, AI-powered tools and data pipelines.
+Contact me for help with OSINT workflows, login flow detection, or custom scraping solutions.
+
+
+---
+
+### ✅ Next Steps:
+- Rename the file from `.rtf` to `README.md`
+- Paste this content and commit it
+- Upload or paste a small screenshot (e.g., `Facebook_screenshot.png`) as cover image
+- Link this repo in your Upwork portfolio with an appropriate title/description
+
+Want help crafting your **Upwork portfolio entry** or adding badges like "Node.js" and "Cheerio"? I can tweak it immediately! 🚀
+::contentReference[oaicite:0]{index=0}
+
+
